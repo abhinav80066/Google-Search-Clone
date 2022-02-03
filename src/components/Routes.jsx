@@ -1,6 +1,7 @@
-import { fromJSON } from 'postcss';
+import { fromJSON, Result } from 'postcss';
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { Results } from './Results';
 
 export const Routes = () => {
   return <div className='p-4'>
@@ -8,7 +9,9 @@ export const Routes = () => {
           <Route exact path ="/">
               <Redirect to ="/search" />
           </Route>
-          <Route path ={['/search', '/image', '/news', '/videos']}></Route>
+          <Route exact path ={['/search', '/image', '/news', '/videos']}>
+              <Results />
+          </Route>
       </Switch>
   </div>;
 }
